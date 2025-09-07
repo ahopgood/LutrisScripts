@@ -9,7 +9,7 @@ git clone -b ${VERSION} --depth 1 https://github.com/luciusDXL/TheForceEngine.gi
 
 cd tfe-build
 cmake -S ../TheForceEngine
-make
+make -j9 # build speed up for an 8 core machine (remove to run single threaded)
 
 cd ..
 # It is important to use /* on the directories to follow the symlinks to the source code when archiving
@@ -25,7 +25,8 @@ tar cfJ theforceengine.tar.xz tfe-build/Captions/* \
   tfe-build/Tests/* \
   tfe-build/TheForceEngine/* \
   tfe-build/UI_Images/* \
-  tfe-build/UI_Text/*
+  tfe-build/UI_Text/* \
+  tfe-build/theforceengine
 
 echo "Removing build directory and TheForceEngine git checkout"
 rm -rf tfe-build
