@@ -16,7 +16,6 @@ script:
     exe: theforceengine
     ld_library_path: $GAMEDIR/libs
   installer:
-#    - autosetup_gog_game: "gogsetup"
     - extract:
         dst: $CACHE
         file: gogsetup

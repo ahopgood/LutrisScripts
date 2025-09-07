@@ -12,7 +12,6 @@ fi
 GITHUB=https://github.com/ahopgood/LutrisScripts/raw/master/Star%20Wars%20-%20Dark%20Forces
 
 # Escape forward slashes before calling sed
-#HOST=${HOST/http:\/\//http:\\/\\/}
 GITHUB=$(echo $GITHUB | sed 's/\//\\\//g')
 HOST=$(echo $HOST | sed 's/\//\\\//g')
 
