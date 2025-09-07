@@ -1,0 +1,43 @@
+description: Play "Star Wars - Dark Forces" provided by GOG on Linux!
+game_slug: star-wars-dark-forces
+gogslug: star_wars_dark_forces
+humblestoreid: ''
+installer_slug: star-wars-dark-forces-gog-tfe
+name: 'Star Wars: Dark Forces'
+notes: '- Using "The Force Engine (TFE)" release v1.22.300'
+runner: linux
+service: gog
+service_id: '1421404433'
+script:
+  files:
+    - gogsetup: N/A:Select the installer from GOG
+    - engine: https://github.com/ahopgood/LutrisScripts/raw/master/Star%20Wars%20-%20Dark%20Forces/theforceengine.tar.xz
+  game:
+    exe: theforceengine
+    ld_library_path: $GAMEDIR/libs
+  installer:
+#    - autosetup_gog_game: "gogsetup"
+    - extract:
+        dst: $CACHE
+        file: gogsetup
+        format: zip
+    - merge:
+        dst: $GAMEDIR
+        src: $CACHE/data/noarch
+    - extract:
+        dst: $GAMEDIR
+        file: engine
+    - write_config:
+        data:
+          Dark_Forces:
+            sourcePath: $GAMEDIR/data
+          Graphics:
+            widescreen: true
+        file: $GAMEDIR/settings.ini
+  system:
+    env:
+      TFE_DATA_HOME: $GAMEDIR
+slug: star-wars-dark-forces-gog-tfe
+steamid: 32400
+version: GOG + TFE
+year: 1995
