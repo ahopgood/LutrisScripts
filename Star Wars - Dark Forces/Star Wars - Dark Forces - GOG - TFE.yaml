@@ -11,7 +11,7 @@ service_id: '1421404433'
 script:
   files:
     - gogsetup: N/A:Select the installer from GOG
-    - engine: https://github.com/ahopgood/LutrisScripts/raw/master/Star%20Wars%20-%20Dark%20Forces/theforceengine.tar.xz
+    - engine: https://github.com/ahopgood/LutrisScripts/raw/main/Star%20Wars%20-%20Dark%20Forces/theforceengine.tar.xz
   game:
     exe: theforceengine
     ld_library_path: $GAMEDIR/libs

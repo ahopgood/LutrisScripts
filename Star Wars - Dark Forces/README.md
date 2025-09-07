@@ -21,3 +21,18 @@
   * Creates a compressed archive of the artifacts via tar with xz compression
 
 
+## Testing the Lutris Script 
+* Start a local web server to host your copy of TFE
+```
+python3 -m http.server 8080
+```
+* Build a local version of Lutris script template pointing to `http://localhost:8080`
+  ```
+  ./local.sh
+  ``` 
+  * This updates the `engine:` field to point to `http://localhost:8080/theforceengine.tar.xz`
+  * And generates the file `local.local.Star Wars - Dark Forces - GOG - TFE.yaml`
+* Run the Lutris script: 
+```
+lutris -i "${PWD}"/local.Star\ Wars\ -\ Dark\ Forces\ -\ GOG\ -\ TFE.yaml
+```
